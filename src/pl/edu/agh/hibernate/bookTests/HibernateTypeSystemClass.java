@@ -5,6 +5,15 @@
 package pl.edu.agh.hibernate.bookTests;
 
 import java.math.BigDecimal;
+import java.sql.Blob;
+import java.sql.Clob;
+import java.sql.Date;
+import java.sql.Time;
+import java.sql.Timestamp;
+import java.util.Calendar;
+import java.util.Currency;
+import java.util.Locale;
+import java.util.TimeZone;
 
 /**
  * Class contains build-in types mapping
@@ -28,6 +37,23 @@ public class HibernateTypeSystemClass {
     private boolean yesNoValue;
     private boolean trueFalseValue;
 
+    private Date dateValue;
+    private Time timeValue;
+    private Timestamp timestampValue;
+    private Calendar calendarValue;
+    private Calendar calendarDateValue;
+    
+    private byte[] binaryValue;
+    private String textValue;
+    private Clob clobValue;
+    private Blob blobValue;
+    
+    private Class classValue;
+    private Locale localeValue;
+    private TimeZone timezoneValue;
+    private Currency currencyValue;
+    
+    
     public HibernateTypeSystemClass() {}
     
     public long getId() {
@@ -132,6 +158,110 @@ public class HibernateTypeSystemClass {
 
     public void setTrueFalseValue(boolean trueFalseValue) {
         this.trueFalseValue = trueFalseValue;
+    }
+
+    public Date getDateValue() {
+        return dateValue;
+    }
+
+    public void setDateValue(Date dateValue) {
+        this.dateValue = dateValue;
+    }
+
+    public Time getTimeValue() {
+        return timeValue;
+    }
+
+    public void setTimeValue(Time timeValue) {
+        this.timeValue = timeValue;
+    }
+
+    public Timestamp getTimestampValue() {
+        return timestampValue;
+    }
+
+    public void setTimestampValue(Timestamp timestampValue) {
+        this.timestampValue = timestampValue;
+    }
+
+    public Calendar getCalendarValue() {
+        return calendarValue;
+    }
+
+    public void setCalendarValue(Calendar calendarValue) {
+        this.calendarValue = calendarValue;
+    }
+
+    public Calendar getCalendarDateValue() {
+        return calendarDateValue;
+    }
+
+    public void setCalendarDateValue(Calendar calendarDateValue) {
+        this.calendarDateValue = calendarDateValue;
+    }
+
+    public byte[] getBinaryValue() {
+        return binaryValue;
+    }
+
+    public void setBinaryValue(byte[] binaryValue) {
+        this.binaryValue = binaryValue;
+    }
+
+    public String getTextValue() {
+        return textValue;
+    }
+
+    public void setTextValue(String textValue) {
+        this.textValue = textValue;
+    }
+
+    public Clob getClobValue() {
+        return clobValue;
+    }
+
+    public void setClobValue(Clob clobValue) {
+        this.clobValue = clobValue;
+    }
+
+    public Blob getBlobValue() {
+        return blobValue;
+    }
+
+    public void setBlobValue(Blob blobValue) {
+        this.blobValue = blobValue;
+    }
+
+    public Class getClassValue() {
+        return classValue;
+    }
+
+    public void setClassValue(Class classValue) {
+        this.classValue = classValue;
+    }
+
+    public Locale getLocaleValue() {
+        return localeValue;
+    }
+
+    public void setLocaleValue(Locale localeValue) {
+        this.localeValue = localeValue;
+    }
+
+    public TimeZone getTimezoneValue() {
+        return timezoneValue;
+    }
+
+    public void setTimezoneValue(TimeZone timezoneValue) {
+        this.timezoneValue = timezoneValue;
+    }
+
+    public Currency getCurrencyValue() {
+        return currencyValue;
+    }
+
+    public void setCurrencyValue(Currency currencyValue) {
+        this.currencyValue = currencyValue;
     }
     
 }

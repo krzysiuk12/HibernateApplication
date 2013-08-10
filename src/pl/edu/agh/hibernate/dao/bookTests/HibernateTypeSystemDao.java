@@ -9,6 +9,11 @@ import pl.edu.agh.hibernate.bookTests.HibernateTypeSystemClass;
 import pl.edu.agh.hibernate.dao.foundation.GenericHibernateDao;
 
 /**
+ * Java Persistence With Hiberate Book
+ * Chapter 5
+ * 
+ * Class created to test all aspects concerned in Hibernate Type System subchapter.
+ * 
  * @author Krzysztof Kicinger
  */
 public class HibernateTypeSystemDao extends GenericHibernateDao<HibernateTypeSystemClass, Long> implements IGenerator {
