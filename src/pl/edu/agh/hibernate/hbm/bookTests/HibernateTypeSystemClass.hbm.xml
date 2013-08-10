@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN" "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping package="pl.edu.agh.hibernate.bookTests">
+  <class name="HibernateTypeSystemClass" table="HIBERNATE_TYPE_SYSTEM_CLASS" dynamic-insert="false" dynamic-update="false" mutable="true">
+      
+      <id name="id" column="ID_HIBERNATE_TYPE_SYSTEM_CLASS" type="long">
+          <generator class="native"/>
+      </id>
+      
+      <!-- Build-in Java Primitive Types -->
+      <property name="byteValue" column="BYTE_VALUE_COLUMN" type="byte"/>
+      <property name="shortValue" column="SHORT_VALUE_COLUMN" type="short"/>
+      <property name="intValue" column="INTEGER_VALUE_COLUMN" type="integer"/>
+      <property name="longValue" column="LONG_VALUE_COLUMN" type="long"/>
+      <property name="floatValue" column="FLOAT_VALUE_COLUMN" type="float"/>
+      <property name="doubleValue" column="DOUBLE_VALUE_COLUMN" type="double"/>
+      <property name="bigDecimalValue" column="BIG_DECIMAL_VALUE_COLUMN" type="big_decimal"/>
+      <property name="characterValue" column="CHARACTER_VALUE_COLUMN" type="character"/>
+      <property name="stringValue" column="STRING_VALUE_COLUMN" type="string"/>
+      <property name="booleanValue" column="BOOLEAN_VALUE_COLUMN" type="boolean"/>
+      <property name="yesNoValue" column="YES_NO_VALUE_COLUMN" type="yes_no"/>
+      <property name="trueFalseValue" column="TRUE_FALSE_VALUE_COLUMN" type="true_false"/>
+      
+      
+  </class>    
+</hibernate-mapping>
