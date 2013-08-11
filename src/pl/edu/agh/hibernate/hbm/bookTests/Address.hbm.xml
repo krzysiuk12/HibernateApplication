@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN" "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<hibernate-mapping package="pl.edu.agh.hibernate.bookTests">
+    <class dynamic-insert="false" dynamic-update="false" mutable="true" name="Address" 
+           optimistic-lock="version" polymorphism="implicit" select-before-update="false">
+
+        <id name="id" column="ADDRESS_ID" type="long">
+            <generator class="native">
+                <!-- <param name="property">user</param> -->
+            </generator>
+        </id>
+        
+        <property name="street" column="STREET" type="string" length="30"/>
+        <property name="zipcode" column="ZIPCODE" type="string" length="10"/>
+        <property name="city" column="CITY" type="string" length="30"/>
+        
+        <one-to-one name="user" class="UserAccount" constrained="true" foreign-key="AddressSideWithUserOneToOne"/>
+        
+    </class>
+</hibernate-mapping>

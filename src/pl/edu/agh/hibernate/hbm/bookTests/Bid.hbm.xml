@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN" "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<hibernate-mapping>
+  <class dynamic-insert="false" dynamic-update="false" mutable="true" name="pl.edu.agh.hibernate.bookTests.Bid" 
+         optimistic-lock="version" polymorphism="implicit" select-before-update="false">
+  
+      <id name="id" column="BID_ID" type="long">
+          <generator class="sequence"/>
+      </id>
+      
+      <many-to-one name="item" column="ITEM_ID" class="pl.edu.agh.hibernate.bookTests.Item" not-null="true" foreign-key="BidSideUserAssociationForeignKey"/>
+      
+  </class>
+
+</hibernate-mapping>

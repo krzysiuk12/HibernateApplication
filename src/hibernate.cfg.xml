@@ -10,8 +10,8 @@
     <property name="hibernate.connection.password">postgres</property>
     <!-- Hibernate properties - SQL Properties -->
     <property name="hibernate.show_sql">true</property>
-    <property name="hibernate.use_sql_comments">true</property>
-    <property name="hibernate.format_sql">true</property>
+    <property name="hibernate.use_sql_comments">false</property>
+    <property name="hibernate.format_sql">false</property>
     <!-- Hibernate properties - Session Configuration -->
     <property name="hibernate.current_session_context_class">thread</property>
     <!-- Hibernate properties - database schema generator -->
@@ -25,5 +25,9 @@
     <mapping resource="pl/edu/agh/hibernate/hbm/bookTests/HibernateTypeSystemClass.hbm.xml"/>
     <mapping resource="pl/edu/agh/hibernate/hbm/bookTests/HibernateTypeSystemClassQueries.xml"/>
     <mapping resource="pl/edu/agh/hibernate/hbm/bookTests/CollectionMappings.hbm.xml"/>
+    <mapping resource="pl/edu/agh/hibernate/hbm/bookTests/Bid.hbm.xml"/>
+    <mapping resource="pl/edu/agh/hibernate/hbm/bookTests/Item.hbm.xml"/>
+    <mapping resource="pl/edu/agh/hibernate/hbm/bookTests/Address.hbm.xml"/>
+    <mapping resource="pl/edu/agh/hibernate/hbm/bookTests/UserAccount.hbm.xml"/>
   </session-factory>
 </hibernate-configuration>

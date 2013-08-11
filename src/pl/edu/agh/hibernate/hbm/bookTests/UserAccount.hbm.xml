@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN" "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<hibernate-mapping package="pl.edu.agh.hibernate.bookTests">
+  <class dynamic-insert="false" dynamic-update="false" mutable="true" name="UserAccount" optimistic-lock="version" polymorphism="implicit" select-before-update="false">
+        <id name="id" column="USER_ID" type="long">
+            <generator class="sequence"/>
+        </id>
+        
+        <property name="firstname" column="FIRSTNAME" type="string"/>
+        <property name="lastname" column="LASTNAME" type="string"/>
+        
+        <one-to-one name="homeAddress" class="Address" cascade="save-update" foreign-key="UsedSideWithAddressOneToOne"/>
+    </class>
+</hibernate-mapping>

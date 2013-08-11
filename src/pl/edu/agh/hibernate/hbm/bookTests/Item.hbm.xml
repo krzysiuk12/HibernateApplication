@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN" "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping package="pl.edu.agh.hibernate.bookTests">
+    <class dynamic-insert="false" dynamic-update="false" mutable="true" name="Item" 
+         optimistic-lock="version" polymorphism="implicit" select-before-update="false">
+  
+         <id name="id" column="ITEM_ID" type="long">
+             <generator class="sequence"/>
+         </id>
+         
+         <property name="name" column="NAME" type="string"/>
+         <property name="description" column="DESCRIPTION" type="text"/>
+         <property name="initialPrice" column="INITIAL_PRICE" type="double"/>
+         
+         <set name="bids" inverse="true" cascade="save-update, delete, delete-orphan">
+             <key column="ITEM_ID" foreign-key="UserSideBidAssociationForeignKey"/>
+             <one-to-many class="Bid"/>
+         </set>
+         
+    </class>
+</hibernate-mapping>
