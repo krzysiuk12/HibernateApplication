@@ -1,7 +1,3 @@
-/*
- * To change this template, choose Tools | Templates
- * and open the template in the editor.
- */
 package pl.edu.agh.hibernate.foundation;
 
 import org.hibernate.SessionFactory;
@@ -12,7 +8,7 @@ import org.hibernate.service.ServiceRegistryBuilder;
  * Hibernate Utility class with a convenient method to get Session Factory
  * object.
  *
- * @author Krzysztof Kicinger
+ * @author Krzysiu
  */
 public class HibernateUtil {
 

@@ -1,7 +1,3 @@
-/*
- * To change this template, choose Tools | Templates
- * and open the template in the editor.
- */
 package pl.edu.agh.hibernate.dao.bookTests;
 
 import java.math.BigDecimal;
@@ -20,7 +16,7 @@ import pl.edu.agh.hibernate.dao.foundation.GenericHibernateDao;
  * 
  * Class created to test all aspects concerned in Hibernate Type System subchapter.
  * 
- * @author Krzysztof Kicinger
+ * @author Krzysiu
  */
 public class HibernateTypeSystemDao extends GenericHibernateDao<HibernateTypeSystemClass, Long> implements IGenerator<HibernateTypeSystemClass> {
 

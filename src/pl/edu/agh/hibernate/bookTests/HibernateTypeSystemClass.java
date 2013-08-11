@@ -18,7 +18,7 @@ import java.util.TimeZone;
 /**
  * Class contains build-in types mapping
  * 
- * @author Krzysztof Kicinger
+ * @author Krzysiu
  */
 public class HibernateTypeSystemClass {
     

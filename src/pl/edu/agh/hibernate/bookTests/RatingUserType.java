@@ -11,7 +11,7 @@ import org.hibernate.usertype.UserType;
 
 /**
  *
- * @author Krzysztof Kicinger
+ * @author Krzysiu
  */
 public class RatingUserType implements UserType {
 

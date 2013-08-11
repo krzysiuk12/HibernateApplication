@@ -7,7 +7,7 @@ package pl.edu.agh.application.main.interfaces;
 /**
  * Interface for Logging Service
  * 
- * @author Krzysztof Kicinger
+ * @author Krzysiu
  */
 public interface ILogger {
     

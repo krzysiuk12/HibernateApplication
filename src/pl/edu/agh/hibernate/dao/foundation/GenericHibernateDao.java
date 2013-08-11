@@ -1,7 +1,3 @@
-/*
- * To change this template, choose Tools | Templates
- * and open the template in the editor.
- */
 package pl.edu.agh.hibernate.dao.foundation;
 
 import java.io.Serializable;
@@ -16,7 +12,7 @@ import pl.edu.agh.hibernate.foundation.HibernateUtil;
 import pl.edu.agh.hibernate.interfaces.GenericDao;
 
 /**
- * @author Krzysztof Kicinger
+ * @author Krzysiu
  */
 public class GenericHibernateDao<Template, ID extends Serializable> implements GenericDao<Template, ID> {
     

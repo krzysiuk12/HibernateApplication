@@ -1,7 +1,3 @@
-/*
- * To change this template, choose Tools | Templates
- * and open the template in the editor.
- */
 package pl.edu.agh.hibernate.interfaces;
 
 import java.io.Serializable;
@@ -9,7 +5,7 @@ import java.util.List;
 
 /**
  *
- * @author Krzysztof Kicinger
+ * @author Krzysiu
  */
 public interface GenericDao<Template, ID extends Serializable> {
     
