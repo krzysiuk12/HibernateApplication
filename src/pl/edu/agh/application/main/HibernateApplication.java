@@ -6,6 +6,7 @@ package pl.edu.agh.application.main;
 
 import java.util.List;
 import pl.edu.agh.hibernate.bookTests.HibernateTypeSystemClass;
+import pl.edu.agh.hibernate.bookTests.Rating;
 import pl.edu.agh.hibernate.dao.bookTests.HibernateTypeSystemDao;
 
 /**
@@ -20,9 +21,9 @@ public class HibernateApplication {
     public static void main(String[] args) {
         HibernateTypeSystemDao hibernateTypeSystemClassDao = new HibernateTypeSystemDao();
         hibernateTypeSystemClassDao.generate(10);
-        List<HibernateTypeSystemClass> allEntities = hibernateTypeSystemClassDao.findAll();
+        List<HibernateTypeSystemClass> allEntities = hibernateTypeSystemClassDao.findAllEntitiesWithRanking(Rating.OK);
         for(HibernateTypeSystemClass entity : allEntities) {
-            System.out.println(entity.getId());
+            System.out.println(entity.getId() + " " + entity.getMonetaryAmount().getAmount() + " " + entity.getMonetaryAmount().getCurrency().toString() + " " + entity.getRating().name());
         }
     }
 }

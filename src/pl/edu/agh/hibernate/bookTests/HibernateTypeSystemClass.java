@@ -53,6 +53,9 @@ public class HibernateTypeSystemClass {
     private TimeZone timezoneValue;
     private Currency currencyValue;
     
+    private MonetaryAmount monetaryAmount;
+    
+    private Rating rating;
     
     public HibernateTypeSystemClass() {}
     
@@ -262,6 +265,22 @@ public class HibernateTypeSystemClass {
 
     public void setCurrencyValue(Currency currencyValue) {
         this.currencyValue = currencyValue;
+    }
+
+    public MonetaryAmount getMonetaryAmount() {
+        return monetaryAmount;
+    }
+
+    public void setMonetaryAmount(MonetaryAmount monetaryAmount) {
+        this.monetaryAmount = monetaryAmount;
+    }
+
+    public Rating getRating() {
+        return rating;
+    }
+
+    public void setRating(Rating rating) {
+        this.rating = rating;
     }
     
 }

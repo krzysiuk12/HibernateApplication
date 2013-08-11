@@ -8,8 +8,10 @@ package pl.edu.agh.application.main.interfaces;
  *
  * @author Krzysiu
  */
-public interface IGenerator {
+public interface IGenerator<Template> {
  
     public void generate(int numberOfObjectsToGenerate);
     
+    public Template generateEntity();
+
 }

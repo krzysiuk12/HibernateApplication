@@ -9,5 +9,11 @@
         from
             HibernateTypeSystemClass
     </query>
-
+    <query name="findAllEntitiesWithRanking">
+        <query-param name="rating" type="pl.edu.agh.hibernate.bookTests.Ranking"/>
+        from
+            HibernateTypeSystemClass htsc
+        where
+            htsc.rating = :rating
+    </query>
 </hibernate-mapping>

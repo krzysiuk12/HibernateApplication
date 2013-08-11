@@ -2,7 +2,7 @@
 <!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN" "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
 
 <hibernate-mapping package="pl.edu.agh.hibernate.bookTests">
-  <class name="HibernateTypeSystemClass" table="HIBERNATE_TYPE_SYSTEM_CLASS" dynamic-insert="false" dynamic-update="false" mutable="true">
+  <class name="HibernateTypeSystemClass" table="HIBERNATE_TYPE_SYSTEM_CLASS" dynamic-insert="true" dynamic-update="false" mutable="true">
       
       <id name="id" column="ID_HIBERNATE_TYPE_SYSTEM_CLASS" type="long">
           <generator class="native"/>
@@ -37,6 +37,13 @@
       <property name="localeValue" column="LOCALE_VALUE_COLUMN" type="locale"/>
       <property name="timezoneValue" column="TIMEZONE_VALUE_COLUMN" type="timezone"/>
       <property name="currencyValue" column="CURRENCY_VALUE_COLUMN" type="currency"/>
+      
+      <property name="monetaryAmount" type="pl.edu.agh.hibernate.bookTests.MonetaryAmountUserType">
+            <column name="MONETARY_AMOUNT"/>
+            <column name="MONETARY_AMOUNT_CURRENCY"/>
+      </property>    
+      
+      <property name="rating" column="RATING_COLUMN" type="pl.edu.agh.hibernate.bookTests.RatingUserType"/>
       
   </class>    
 </hibernate-mapping>
