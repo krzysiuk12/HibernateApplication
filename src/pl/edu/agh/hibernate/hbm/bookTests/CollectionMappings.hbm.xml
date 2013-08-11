@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN" "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<hibernate-mapping>
+    <class dynamic-insert="false" dynamic-update="false" mutable="true" name="pl.edu.agh.hibernate.bookTests.CollectionMappings" 
+         optimistic-lock="version" polymorphism="implicit" select-before-update="false">
+  
+         <id name="id" column="COLLECTION_MAPPINGS_ID" type="long">
+                <generator class="native"/>
+         </id>
+  
+        <set name="stringSet" table="STRING_SET" cascade="all" mutable="true">
+              <key column="OWING_ENITITY_ID_FK" foreign-key="StringSetForeignKeyConstraint"/>
+              <element type="string" column="STRING_SET_ELEMENT" not-null="true"/>
+        </set>
+
+        <set name="stringSortedSet" table="STRING_SORTED_SET" sort="natural" cascade="all">
+              <key column="OWING_ENITITY_ID_FK" foreign-key="StringSortedSetForeignKeyConstraint"/>
+              <element type="string" column="STRING_SORTED_SET_ELEMENT" not-null="true"/>
+        </set>
+        
+        <idbag name="integerCollection" table="INTEGER_SIMPLE_COLLECTION_IDBAG">
+            <collection-id type="long" column="SIMPLE_COLLECTION_IDBAG_ID">
+                <generator class="increment"/>
+            </collection-id>
+            <key column="OWING_ENITITY_ID_FK" foreign-key="IntegerCollectionIdBagForeignKeyConstraint"/>
+            <element type="integer" column="INTEGER_PROPERTY" not-null="true"/>
+        </idbag>
+        
+        <list name="doubleList" table="DOUBLE_LIST">
+            <key column="OWING_ENITITY_ID_FK" foreign-key="DoubleListForeignKeyConstraint"/>
+            <list-index column="LIST_POSITION"/>
+            <element type="double" column="DOUBLE_PROPERTY" precision="3" scale="2" not-null="true"/>
+        </list>
+        
+        <map name="map" table="INTEGER_STRING_MAP">
+            <key column="OWING_ENITITY_ID_FK" foreign-key="IntegerStringMapForeignKey"/>
+            <map-key column="INTEGER_MAP_KEY_COLUMN" type="integer"/>
+            <element column="STRING_PROPERTY" type="string" not-null="true"/>
+        </map>
+        
+        <map name="sortedMap" table="SORTED_MAP" sort="natural">
+            <key column="OWING_ENITITY_ID_FK" foreign-key="SortedMapForeignKey"/>
+            <map-key column="INTEGER_MAP_KEY" type="integer"/>
+            <element column="STRING_ELEMENT" type="string" not-null="true"/>
+        </map>
+        
+        <set name="imagesComponentCollection" table="IMAGES_COMPONENT_COLLECTION" order-by="filename asc">
+            <key column="OWING_ENTITY_ID_FK" foreign-key="ImagesComponentCollectionForeignKey"/>
+            <composite-element class="pl.edu.agh.hibernate.bookTests.Image">
+                <parent name="collectionMapping"/>
+                <property name="filename" column="IMAGE_FILENAME" not-null="true"/>
+                <property name="name" column="IMAGE_NAME" not-null="true"/>
+                <property name="sizeX" column="IMAGE_SIZEX" not-null="true"/>
+                <property name="sizeY" column="IMAGE_SIZEY" not-null="true"/>
+            </composite-element>
+        </set>
+        
+    </class>
+</hibernate-mapping>
