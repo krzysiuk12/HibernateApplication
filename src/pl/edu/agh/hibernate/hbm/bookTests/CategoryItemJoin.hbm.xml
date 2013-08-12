@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN" "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<hibernate-mapping package="pl.edu.agh.hibernate.bookTests">
+  <class dynamic-insert="false" dynamic-update="false" mutable="true" name="CategoryItemJoin" 
+         optimistic-lock="version" polymorphism="implicit" select-before-update="false">
+  
+      <composite-id name="id" class="CategoryItemJoin$Id">
+          <key-property name="categoryId" column="CATEGORY_ID" access="field"/>
+          <key-property name="itemId" column="ItemId" access="field"/>
+      </composite-id>
+      
+      <property name="username" column="USERNAME" type="string"/>
+      <property name="dateAdded" column="DATE_ADDED" type="timestamp"/>
+      
+      <many-to-one name="category" column="CATEGORY_ID" not-null="true" insert="false" update="false"/>
+      <many-to-one name="item" column="ITEM_ID" not-null="true" insert="false" update="false"/>
+  </class>
+</hibernate-mapping>

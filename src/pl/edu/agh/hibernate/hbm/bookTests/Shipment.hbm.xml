@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN" "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<hibernate-mapping package="pl.edu.agh.hibernate.bookTests">
+    <class dynamic-insert="false" dynamic-update="false" mutable="true" name="Shipment" 
+           optimistic-lock="version" polymorphism="implicit" select-before-update="false">
+
+        <id name="id" column="SHIPMENT_ID" type="long">
+            <generator class="native"/>
+        </id>
+        
+        <property name="inscpetionPeriodDays" column="INSPECTION_PERIOD_DAYS" type="int"/>
+        <property name="created" column="CREATION_DATE" type="date"/>
+        
+        <join table="ITEM_SHIPMENT" optional="true">
+            <key column="SHIPMENT_ID"/>
+            <many-to-one name="auction" class="Item" column="ITEM_ID" not-null="true" unique="true"/>
+        </join>
+        
+    </class>
+</hibernate-mapping>

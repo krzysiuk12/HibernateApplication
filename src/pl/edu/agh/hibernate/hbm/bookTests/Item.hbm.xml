@@ -12,11 +12,43 @@
          <property name="name" column="NAME" type="string"/>
          <property name="description" column="DESCRIPTION" type="text"/>
          <property name="initialPrice" column="INITIAL_PRICE" type="double"/>
-         
-         <set name="bids" inverse="true" cascade="save-update, delete, delete-orphan">
+         <property name="reservePrice" column="RESERVE_PRICE" type="double"/>
+         <property name="startDate" column="START_DATE" type="date"/>
+         <property name="endDate" column="END_DATE" type="date"/>
+         <property name="approvalDatetime" column="APPROVAL_DATE_TIME" type="date"/>
+   
+         <!-- <set name="bids" inverse="true" cascade="save-update, delete, delete-orphan">
              <key column="ITEM_ID" foreign-key="UserSideBidAssociationForeignKey"/>
              <one-to-many class="Bid"/>
+         </set> -->
+         
+         <!-- Many to one association with Bid -->
+         <!-- <bag name="bids" inverse="true" cascade="save-update, delete, delete-orphan">
+             <key column="ITEM_ID"/>
+             <one-to-many class="Bid"/>
+         </bag> -->
+         
+         <!-- One-to-many association with List -->
+         <list name="bids">
+             <key column="ITEM_ID" not-null="true"/>  <!-- not-null="true" for unidirectional mapping" -->
+             <list-index column="BID_POSITION" base="1"/>
+             <one-to-many class="Bid"/>
+         </list>
+         
+         <set name="categories" table="CATEGORY_ITEM" inverse="true" cascade="save-update">
+             <key column="ITEM_ID"/>
+             <many-to-many class="Category" column="CATEGORY_ID"/>
          </set>
+         
+         <set name="categoryItemJoin" inverse="true">
+             <key column="ITEM_ID"/>
+             <one-to-many class="Item"/>
+         </set>
+         
+         <join table="ITEM_BUYER" optional="true" inverse="true">
+             <key column="ITEM_ID" unique="true" not-null="true"/>
+             <many-to-one name="buyerId" class="UserAccount" column="USER_ID"/>
+         </join>
          
     </class>
 </hibernate-mapping>

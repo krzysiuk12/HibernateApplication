@@ -4,7 +4,11 @@
  */
 package pl.edu.agh.hibernate.bookTests;
 
+import java.util.ArrayList;
+import java.util.Collection;
+import java.util.Date;
 import java.util.HashSet;
+import java.util.List;
 import java.util.Set;
 
 /**
@@ -18,7 +22,16 @@ public class Item {
     private String name;
     private String description;
     private double initialPrice;
-    private Set<Bid> bids = new HashSet<>();
+    private double reservePrice;
+    private Date startDate;
+    private Date endDate;
+    private Date approvalDatetime;
+    //private Set<Bid> bids = new HashSet<>();
+    //private Collection<Bid> bids = new ArrayList<>();
+    private List<Bid> bids = new ArrayList<>();
+    private UserAccount buyerId;
+    private Set<Category> categories = new HashSet<>();
+    private Set<CategoryItemJoin> categoryItemJoin = new HashSet<>();
     
     public Item() {
     }
@@ -55,12 +68,68 @@ public class Item {
         this.initialPrice = initialPrice;
     }
 
-    public Set<Bid> getBids() {
+    public List<Bid> getBids() {
         return bids;
     }
 
-    public void setBids(Set<Bid> bids) {
+    public void setBids(List<Bid> bids) {
         this.bids = bids;
     }
 
+    public double getReservePrice() {
+        return reservePrice;
+    }
+
+    public void setReservePrice(double reservePrice) {
+        this.reservePrice = reservePrice;
+    }
+
+    public Date getStartDate() {
+        return startDate;
+    }
+
+    public void setStartDate(Date startDate) {
+        this.startDate = startDate;
+    }
+
+    public Date getEndDate() {
+        return endDate;
+    }
+
+    public void setEndDate(Date endDate) {
+        this.endDate = endDate;
+    }
+
+    public Date getApprovalDatetime() {
+        return approvalDatetime;
+    }
+
+    public void setApprovalDatetime(Date approvalDatetime) {
+        this.approvalDatetime = approvalDatetime;
+    }
+
+    public UserAccount getBuyerId() {
+        return buyerId;
+    }
+
+    public void setBuyerId(UserAccount buyerId) {
+        this.buyerId = buyerId;
+    }
+
+    public Set<Category> getCategories() {
+        return categories;
+    }
+
+    public void setCategories(Set<Category> categories) {
+        this.categories = categories;
+    }
+
+    public Set<CategoryItemJoin> getCategoryItemJoin() {
+        return categoryItemJoin;
+    }
+
+    public void setCategoryItemJoin(Set<CategoryItemJoin> categoryItemJoin) {
+        this.categoryItemJoin = categoryItemJoin;
+    }
+    
 }

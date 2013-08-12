@@ -14,7 +14,8 @@
         <property name="zipcode" column="ZIPCODE" type="string" length="10"/>
         <property name="city" column="CITY" type="string" length="30"/>
         
-        <one-to-one name="user" class="UserAccount" constrained="true" foreign-key="AddressSideWithUserOneToOne"/>
+        <!-- <one-to-one name="user" class="UserAccount" constrained="true" foreign-key="AddressSideWithUserOneToOne"/> -->
+        <one-to-one name="user" class="UserAccount" property-ref="homeAddress"/>
         
     </class>
 </hibernate-mapping>

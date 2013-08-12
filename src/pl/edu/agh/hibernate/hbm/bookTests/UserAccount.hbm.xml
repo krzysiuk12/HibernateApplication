@@ -9,6 +9,11 @@
         <property name="firstname" column="FIRSTNAME" type="string"/>
         <property name="lastname" column="LASTNAME" type="string"/>
         
-        <one-to-one name="homeAddress" class="Address" cascade="save-update" foreign-key="UsedSideWithAddressOneToOne"/>
-    </class>
+        <!-- <one-to-one name="homeAddress" class="Address" cascade="save-update" foreign-key="UsedSideWithAddressOneToOne"/> -->
+        <many-to-one name="homeAddress" class="Address" column="HOME_ADDRESS" cascade="save-update" unique="true" foreign-key="UserSideAddressOneToOne"/>
+        <set name="items" table="ITEM_BUYER">
+            <key column="USER_ID" not-null="true"/>
+            <many-to-many class="Item"/>
+        </set>
+  </class>
 </hibernate-mapping>

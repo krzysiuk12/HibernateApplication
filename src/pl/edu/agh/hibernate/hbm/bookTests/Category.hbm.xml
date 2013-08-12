@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN" "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<hibernate-mapping package="pl.edu.agh.hibernate.bookTests">
+    <class dynamic-insert="false" dynamic-update="false" mutable="true" name="Category" optimistic-lock="version" polymorphism="implicit" select-before-update="false">
+
+        <id name="id" column="CATEGORY_ID" type="long">
+            <generator class="native"/>
+        </id>
+        
+        <!-- <set name="items" table="CATEGORY_ITEM" cascade="save-update">
+            <key column="CATEGORY_ID"/>
+            <many-to-many class="Item" column="ITEM_ID"/>
+        </set> -->
+        <idbag name="items" table="CATEGORY_ITEM" cascade="save-update">
+            <collection-id type="long" column="COLLECTION_ITEM_ID">
+                <generator class="sequence"/>
+            </collection-id>
+            <key column="CATEGORY_ID" foreign-key="CategorySideItemManyToManyAssociation"/>
+            <many-to-many class="Item" column="Item_ID"/>
+        </idbag>
+        
+        <!-- <list name="items" table="Category_Item" cascade="save-update">
+            <key column="CATEGORY_ID"/>
+            <list-index column="CATEGORY_ITEM_INDEX"/>
+            <many-to-many class="Item" column="ITEM_ID"/>
+        </list> -->
+        
+        <set name="categoryItemJoin" inverse="true">
+            <key column="CATEGORY_ID"/>
+            <one-to-many class="CategoryItemJoin"/>
+        </set>
+        
+        <set name="categorizedItemValueTypes" table="CATEGORY_ITEM_VALUE_TYPE">
+            <key column="CATEGORY_ID"/>
+            <composite-element class="CategorizedItemValueType">
+                <parent name="category"/>
+                <many-to-one name="item" column="ITEM_ID" class="Item" not-null="true"/>
+                <property name="username" column="USERNAME" type="string" not-null="true"/>
+                <property name="dateAdded" column="ADDED_ON" type="date" not-null="true"/>
+            </composite-element>
+        </set>
+       
+        <map name="ternaryAssociation" table="CATEGORY_ITEM_TERNARY">
+            <key column="CATEGORY_ID"/>
+            <map-key-many-to-many column="ITEM_ID" class="Item"/>
+            <many-to-many column="ADDED_BY_USER_ID" class="UserAccount"/>
+        </map>
+    </class>
+</hibernate-mapping>

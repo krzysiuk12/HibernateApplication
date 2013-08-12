@@ -29,5 +29,8 @@
     <mapping resource="pl/edu/agh/hibernate/hbm/bookTests/Item.hbm.xml"/>
     <mapping resource="pl/edu/agh/hibernate/hbm/bookTests/Address.hbm.xml"/>
     <mapping resource="pl/edu/agh/hibernate/hbm/bookTests/UserAccount.hbm.xml"/>
+    <mapping resource="pl/edu/agh/hibernate/hbm/bookTests/Shipment.hbm.xml"/>
+    <mapping resource="pl/edu/agh/hibernate/hbm/bookTests/Category.hbm.xml"/>
+    <mapping resource="pl/edu/agh/hibernate/hbm/bookTests/CategoryItemJoin.hbm.xml"/>
   </session-factory>
 </hibernate-configuration>

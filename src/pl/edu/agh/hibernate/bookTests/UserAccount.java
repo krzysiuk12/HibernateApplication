@@ -4,6 +4,9 @@
  */
 package pl.edu.agh.hibernate.bookTests;
 
+import java.util.HashSet;
+import java.util.Set;
+
 /**
  *
  * @author Krzysiu
@@ -14,6 +17,7 @@ public class UserAccount {
     private String firstname;
     private String lastname;
     private Address homeAddress;
+    private Set<Item> items = new HashSet<>();
     
     public UserAccount() {
     }
@@ -48,6 +52,14 @@ public class UserAccount {
 
     public void setHomeAddress(Address homeAddress) {
         this.homeAddress = homeAddress;
+    }
+
+    public Set<Item> getItems() {
+        return items;
+    }
+
+    public void setItems(Set<Item> items) {
+        this.items = items;
     }
     
 }
